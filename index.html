@@ -1,79 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ Widget</title>
-  <style>
-    /* Tabs */
-    .tabs { display:flex; gap:10px; justify-content:center; margin-bottom:20px; flex-wrap:wrap; }
-    .tab-btn { padding:10px 20px; border:none; border-radius:8px; background:#eee; cursor:pointer; font-weight:600; }
-    .tab-btn.active { background:#3498db; color:#fff; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GA Demands – FAQs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#3498db;
+    --surface:#ffffff;
+    --muted:#f6f7f9;
+    --border:#e7e9ee;
+    --text:#1f2937;
+    --sub:#6b7280;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:linear-gradient(180deg,#f7fafc 0%, #eef2f7 100%);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+  .wrap{max-width:980px;margin:48px auto;padding:0 16px}
+  h1{font-size:34px;margin:0 0 6px;text-align:center;font-weight:700}
+  .tag{display:block;text-align:center;color:var(--sub);margin-bottom:22px}
 
-    /* Accordion */
-    .accordion-item { border:1px solid #ddd; border-radius:8px; margin-bottom:10px; overflow:hidden; }
-    .accordion-header { padding:15px; font-weight:600; cursor:pointer; background:#f9f9f9; }
-    .accordion-header.active { background:#eaeaea; }
-    .accordion-body { display:none; padding:15px; line-height:1.6; }
-  </style>
+  /* Tabs */
+  .tabs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:10px 0 22px}
+  .tab-btn{padding:12px 18px;border:1px solid var(--border);border-radius:999px;background:#f0f3f8;cursor:pointer;font-weight:600;color:#334155;transition:.2s}
+  .tab-btn:hover{filter:brightness(0.98)}
+  .tab-btn.active{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(52,152,219,.35)}
+
+  /* Card shell */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px}
+
+  /* Tab content visibility */
+  .tab-content{display:none}
+  .tab-content.active{display:block}
+
+  /* Accordion */
+  .accordion-item{border-radius:12px;border:1px solid var(--border);background:#fff;margin:10px 8px;overflow:hidden}
+  .accordion-header{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:18px 18px;cursor:pointer;font-weight:600;background:var(--muted);transition:.2s}
+  .accordion-header:hover{filter:brightness(0.98)}
+  .accordion-header .chev{transition:transform .2s}
+  .accordion-header.active .chev{transform:rotate(180deg)}
+  .accordion-body{display:none;padding:18px 18px 20px;line-height:1.65;color:#374151;background:#fff}
+  iframe{border:0;border-radius:10px}
+
+  @media (max-width:520px){
+    h1{font-size:28px}
+    .accordion-header{padding:16px}
+    .accordion-body{padding:16px}
+  }
+</style>
 </head>
 <body>
-  <div id="faq-widget"></div>
+  <div class="wrap">
+    <h1>GA Demands</h1>
+    <span class="tag">Frequently Asked Questions (FAQs)</span>
 
-  <script>
-    async function loadFAQ() {
-      try {
-        const res = await fetch("faq.json"); // file in same repo
-        const data = await res.json();
+    <div id="faq-widget" class="card"></div>
+  </div>
 
-        const container = document.getElementById("faq-widget");
-        let tabs = "";
-        let content = "";
+<script>
+async function loadFAQ(){
+  try{
+    const res = await fetch("faq.json"); // keep faq.json next to this file
+    const data = await res.json();
 
-        Object.keys(data).forEach((section, i) => {
-          tabs += `<button class="tab-btn ${i===0?'active':''}" data-tab="${section}">${section}</button>`;
+    const container = document.getElementById("faq-widget");
+    let tabsHTML = "";
+    let contentHTML = "";
 
-          let items = data[section].map(item => {
-            let videoEmbed = item.video
-              ? `<iframe width="100%" height="215" src="https://www.youtube.com/embed/${item.video}" frameborder="0" allowfullscreen></iframe>`
-              : "";
-            return `
-              <div class="accordion-item">
-                <div class="accordion-header">${item.q}</div>
-                <div class="accordion-body">${item.a}<br>${videoEmbed}</div>
-              </div>
-            `;
-          }).join("");
+    Object.keys(data).forEach((section, i) => {
+      tabsHTML += `<button class="tab-btn ${i===0?'active':''}" data-tab="${section}">${section}</button>`;
 
-          content += `<div class="tab-content ${i===0?'active':''}" id="${section}">${items}</div>`;
-        });
+      const items = data[section].map(item=>{
+        const video = item.video
+          ? `<div style="margin-top:12px"><iframe width="100%" height="220" src="https://www.youtube.com/embed/${item.video}" allowfullscreen></iframe></div>`
+          : "";
+        return `
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>${item.q}</span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9l6 6 6-6" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="accordion-body">${item.a || ""}${video}</div>
+          </div>
+        `;
+      }).join("");
 
-        container.innerHTML = `<div class="tabs">${tabs}</div>${content}`;
+      contentHTML += `<div class="tab-content ${i===0?'active':''}" id="${section}">${items}</div>`;
+    });
 
-        // Tabs
-        document.querySelectorAll(".tab-btn").forEach(btn=>{
-          btn.addEventListener("click",()=>{
-            document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
-            btn.classList.add("active");
-            document.querySelectorAll(".tab-content").forEach(c=>c.classList.remove("active"));
-            document.getElementById(btn.dataset.tab).classList.add("active");
-          });
-        });
+    container.innerHTML = `
+      <div class="tabs">${tabsHTML}</div>
+      ${contentHTML}
+    `;
 
-        // Accordion
-        document.querySelectorAll(".accordion-header").forEach(header=>{
-          header.addEventListener("click",()=>{
-            header.classList.toggle("active");
-            let body = header.nextElementSibling;
-            body.style.display = (body.style.display==="block")?"none":"block";
-          });
-        });
+    // Tabs
+    document.querySelectorAll(".tab-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        document.querySelectorAll(".tab-content").forEach(c=>c.classList.remove("active"));
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
 
-      } catch (e) {
-        console.error("Error loading FAQ:", e);
-      }
-    }
-    loadFAQ();
-  </script>
+    // Accordion
+    document.querySelectorAll(".accordion-header").forEach(header=>{
+      header.addEventListener("click", ()=>{
+        header.classList.toggle("active");
+        const body = header.nextElementSibling;
+        body.style.display = body.style.display==="block" ? "none" : "block";
+      });
+    });
+  }catch(e){
+    console.error("Error loading FAQ:", e);
+    document.getElementById("faq-widget").innerHTML =
+      `<div style="padding:16px;color:#b91c1c">Could not load FAQs. Make sure <code>faq.json</code> is in the same folder.</div>`;
+  }
+}
+loadFAQ();
+</script>
 </body>
 </html>
