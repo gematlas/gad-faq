@@ -23,7 +23,7 @@
     /* Tabs */
     .tabs{
       display:grid;
-      grid-template-columns:repeat(4, 1fr); /* equal width */
+      grid-template-columns:repeat(4,1fr); /* 4 equal buttons */
       gap:14px;
       margin:10px 0 18px;
     }
@@ -66,7 +66,7 @@
       border:1px solid var(--border);
       background:#fff;
       margin:10px 12px;
-      overflow:hidden;
+      overflow:hidden; /* keeps rounded corners */
     }
     .accordion-header{
       display:flex;align-items:center;justify-content:space-between;gap:10px;
@@ -77,18 +77,28 @@
       transition:.2s ease;
     }
     .accordion-header:hover{filter:brightness(0.98)}
+    .chev{transition:transform .2s}
+
     .accordion-body{
-      background:#fff;
+      /* NO max-height animation — prevents clipping/overflow */
+      display:none;
       padding:0 18px 18px;
       line-height:1.65;
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .25s ease;
+      background:#fff;
+      white-space:normal;
+      overflow-wrap:anywhere;   /* wrap long words/URLs */
+      word-break:break-word;
+      max-width:100%;
     }
-    .chev{transition:transform .2s}
-    .accordion-header.active .chev{transform:rotate(180deg)}
+    .accordion-item.open .accordion-body{display:block}
+    .accordion-item.open .accordion-header .chev{transform:rotate(180deg)}
 
-    iframe{border:0;border-radius:10px}
+    /* Content niceties inside answers */
+    .accordion-body p{margin:12px 0}
+    .accordion-body ul{margin:10px 0 0 18px}
+    .accordion-body li{margin:6px 0}
+
+    iframe{border:0;border-radius:10px;max-width:100%;width:100%;height:230px}
 
     /* Mobile */
     @media (max-width:640px){
@@ -96,6 +106,7 @@
       h1{font-size:26px}
       .tabs{grid-template-columns:1fr; gap:10px}  /* full-width stacked */
       .accordion-item{margin:8px 8px}
+      iframe{height:210px}
     }
   </style>
 </head>
@@ -116,17 +127,17 @@
         const el = document.getElementById("faq-widget");
         const sections = Object.keys(data);
 
-        // Build tabs
+        // Tabs
         const tabsHTML = sections.map((s,i)=>
           `<button class="tab-btn ${i===0?'active':''}" data-tab="${s}">${s}</button>`
         ).join("");
 
-        // Build panels
+        // Panels
         const panelsHTML = sections.map((s,i)=>{
           const items = data[s].map(it=>{
             const vid = it.video ? `
               <div style="margin-top:12px">
-                <iframe width="100%" height="230"
+                <iframe
                   src="https://www.youtube.com/embed/${it.video}"
                   allowfullscreen></iframe>
               </div>` : "";
@@ -134,7 +145,7 @@
               <div class="accordion-item">
                 <div class="accordion-header">
                   <span>${it.q}</span>
-                  <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M6 9l6 6 6-6" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
@@ -153,20 +164,18 @@
             btn.classList.add("active");
             document.querySelectorAll(".tab-content").forEach(p=>p.classList.remove("active"));
             document.getElementById(btn.dataset.tab).classList.add("active");
+
+            // close any open accordions when switching tabs
+            document.querySelectorAll(".accordion-item").forEach(i=>i.classList.remove("open"));
             window.scrollTo({top:0, behavior:"smooth"});
           });
         });
 
-        // Accordion toggle (with smooth height + chevron rotate)
+        // Accordion toggle (robust, no overflow)
         document.querySelectorAll(".accordion-header").forEach(h=>{
           h.addEventListener("click", ()=>{
-            h.classList.toggle("active");
-            const body = h.nextElementSibling;
-            if (body.style.maxHeight){
-              body.style.maxHeight = null;
-            } else {
-              body.style.maxHeight = body.scrollHeight + "px";
-            }
+            const item = h.parentElement;
+            item.classList.toggle("open");
           });
         });
 
