@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Widget</title>
+  <style>
+    /* Tabs */
+    .tabs { display:flex; gap:10px; justify-content:center; margin-bottom:20px; flex-wrap:wrap; }
+    .tab-btn { padding:10px 20px; border:none; border-radius:8px; background:#eee; cursor:pointer; font-weight:600; }
+    .tab-btn.active { background:#3498db; color:#fff; }
+
+    /* Accordion */
+    .accordion-item { border:1px solid #ddd; border-radius:8px; margin-bottom:10px; overflow:hidden; }
+    .accordion-header { padding:15px; font-weight:600; cursor:pointer; background:#f9f9f9; }
+    .accordion-header.active { background:#eaeaea; }
+    .accordion-body { display:none; padding:15px; line-height:1.6; }
+  </style>
+</head>
+<body>
+  <div id="faq-widget"></div>
+
+  <script>
+    async function loadFAQ() {
+      try {
+        const res = await fetch("faq.json"); // file in same repo
+        const data = await res.json();
+
+        const container = document.getElementById("faq-widget");
+        let tabs = "";
+        let content = "";
+
+        Object.keys(data).forEach((section, i) => {
+          tabs += `<button class="tab-btn ${i===0?'active':''}" data-tab="${section}">${section}</button>`;
+
+          let items = data[section].map(item => {
+            let videoEmbed = item.video
+              ? `<iframe width="100%" height="215" src="https://www.youtube.com/embed/${item.video}" frameborder="0" allowfullscreen></iframe>`
+              : "";
+            return `
+              <div class="accordion-item">
+                <div class="accordion-header">${item.q}</div>
+                <div class="accordion-body">${item.a}<br>${videoEmbed}</div>
+              </div>
+            `;
+          }).join("");
+
+          content += `<div class="tab-content ${i===0?'active':''}" id="${section}">${items}</div>`;
+        });
+
+        container.innerHTML = `<div class="tabs">${tabs}</div>${content}`;
+
+        // Tabs
+        document.querySelectorAll(".tab-btn").forEach(btn=>{
+          btn.addEventListener("click",()=>{
+            document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+            btn.classList.add("active");
+            document.querySelectorAll(".tab-content").forEach(c=>c.classList.remove("active"));
+            document.getElementById(btn.dataset.tab).classList.add("active");
+          });
+        });
+
+        // Accordion
+        document.querySelectorAll(".accordion-header").forEach(header=>{
+          header.addEventListener("click",()=>{
+            header.classList.toggle("active");
+            let body = header.nextElementSibling;
+            body.style.display = (body.style.display==="block")?"none":"block";
+          });
+        });
+
+      } catch (e) {
+        console.error("Error loading FAQ:", e);
+      }
+    }
+    loadFAQ();
+  </script>
+</body>
+</html>

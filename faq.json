@@ -1,0 +1,41 @@
+{
+  "Demands": [
+    {
+      "q": "How to post a Demand?",
+      "a": "- Click the \"Plus\" button on the bottom of the page<br>- Select a Category from Parcel (P), Single Non-Certified (S) and Single Certified (SC)<br>- Fill in the specifications for your post<br>- Post your Demand",
+      "video": "SQuQDrK-u1E"
+    },
+    {
+      "q": "How to edit a Demand?",
+      "a": "- Go to the \"My Demands\" section<br>- Select the Demand you wish to edit<br>- Click \"Edit\"<br>- Make changes to your Demand<br>- Post your Demand<br>",
+	  "video": "2ieBuZveKY4"
+	}
+  ],
+  "Inventory": [
+    {
+      "q": "How to Upload Inventory (one at a time)?",
+      "a": "- Go to the Inventory section<br>- Click on the Upload icon on the bottom center of the screen<br>- Click the kind of inventory you want to upload (either Parcel or Single)<br>- Fill in the details of the inventory<br>- Click \"Upload\"",
+      "video": "zb32HvnehAU"
+    },
+	{
+      "q": "How to Bulk Upload Inventory?",
+      "a": "- Go to the Inventory section<br>- Click on the Upload icon on the bottom center of the screen<br>- Click the kind of inventory you want to upload (either Parcel or Single)<br>- Click on \"Bulk Upload\" on the top of the page<br>- Download template for Acceptable Field Values and either Natural or Lab Grown<br>- Fill in the details in the specific template (use Acceptable Field Values)<br>- Click on either \"Rupees\" or \"Dollar\" to say what the price will be in<br>- Click \"Upload\"",
+      "video": "zb32HvnehAU"
+    }
+  ],
+  "Upgrade": [
+    {
+      "q": "How to upgrade my account?",
+      "a": "- Go to Settings<br>- Click Upgrade<br>- Choose plan and complete payment",
+	  "video": "zb32HvnehAU"		
+	}
+  ],
+  "Other": [
+    {
+      "q": "How to Edit Profile?",
+      "a": "- Click on the burger menu on the top left<br>- Click on \"My Profile\"<br>- Fill in the required details<br>- Upload a Profile Picture by clicking on profile image<br>- Choose the source from which you wish to upload the image<br>- Choose an image & it will be upload<br>- Click on \"Save Changes\"",
+	  "video": "zb32HvnehAU"
+    }
+  ]
+  
+}
