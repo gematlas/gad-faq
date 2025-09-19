@@ -1,41 +1,151 @@
 {
   "Demands": [
     {
-      "q": "How to post a Demand?",
-      "a": "- Click the \"Plus\" button on the bottom of the page<br>- Select a Category from Parcel (P), Single Non-Certified (S) and Single Certified (SC)<br>- Fill in the specifications for your post<br>- Post your Demand",
+      "q": "How to Post a Demand",
+      "a": "1. Click the \"Plus\" button on the bottom of the page<br>2. Select a Category from Parcel (P), Single Non-Certified (S) and Single Certified (SC) you want to post about<br>3. Fill in the specifications for your post<br>4. Post your Demand",
       "video": "SQuQDrK-u1E"
     },
     {
-      "q": "How to edit a Demand?",
-      "a": "- Go to the \"My Demands\" section<br>- Select the Demand you wish to edit<br>- Click \"Edit\"<br>- Make changes to your Demand<br>- Post your Demand<br>",
-	  "video": "2ieBuZveKY4"
-	}
+      "q": "How to Edit Demand",
+      "a": "1. Go to the \"My Demands\" section<br>2. Select the Demand you wish to edit<br>3. Click \"Edit\"<br>4. Make changes to your Demand<br>5. Post your Demand",
+      "video": "2ieBuZveKY4"
+    },
+    {
+      "q": "How to repost Demand",
+      "a": "1. Go to the \"My Demands\" section<br>2. Go to the inactive section and select the Demand you wish to repost<br>3. Choose the number of days and click \"Repost\"",
+      "video": "sJ1BJFhqi64"
+    },
+    {
+      "q": "How to Filter (Search) Demands",
+      "a": "1. Click on the Search (Sell) icon on the bottom right<br>2. Select the category of your choice<br>3. Fill in the specifications<br>4. Click the \"Search Demands\" button",
+      "video": "CliV5SKbPJE"
+    },
+    {
+      "q": "How to Star Demands",
+      "a": "1. Go to the \"Demands\" section<br>2. Click on the star icon on the left side of the demand that you wish to save for later<br>3. Or click on any demand and click on the \"Star\" icon on the top right<br>4. View all your \"Starred\" demands in the \"Starred\" section",
+      "video": "b2dHO7eE220"
+    },
+    {
+      "q": "How to Share Your Own Demand",
+      "a": "1. Go to the \"My Demands\" section<br>2. Select the Demand you wish to share<br>3. On the top right click the Share icon<br>4. Share on WhatsApp/Telegram/Message/etc.",
+      "video": "8vFW1HijOUE"
+    },
+    {
+      "q": "How to Share Market Demand",
+      "a": "1. Go to the Demand page<br>2. Select the Demand you wish to share<br>3. Click on the Share button<br>4. Share on WhatsApp/Telegram/Message/etc.",
+      "video": "RewUdqYtdk0"
+    }
   ],
   "Inventory": [
     {
-      "q": "How to Upload Inventory (one at a time)?",
-      "a": "- Go to the Inventory section<br>- Click on the Upload icon on the bottom center of the screen<br>- Click the kind of inventory you want to upload (either Parcel or Single)<br>- Fill in the details of the inventory<br>- Click \"Upload\"",
-      "video": "zb32HvnehAU"
+      "q": "How to Upload Inventory (one at a time)",
+      "a": "1. Go to the Inventory section<br>2. Click on the Upload icon on the bottom center of the screen<br>3. Click the kind of inventory you want to upload (either Parcel or Single)<br>4. Fill in the details of the inventory<br>5. Click \"Upload\"",
+      "video": "iu_uLLav3A0"
     },
-	{
-      "q": "How to Bulk Upload Inventory?",
-      "a": "- Go to the Inventory section<br>- Click on the Upload icon on the bottom center of the screen<br>- Click the kind of inventory you want to upload (either Parcel or Single)<br>- Click on \"Bulk Upload\" on the top of the page<br>- Download template for Acceptable Field Values and either Natural or Lab Grown<br>- Fill in the details in the specific template (use Acceptable Field Values)<br>- Click on either \"Rupees\" or \"Dollar\" to say what the price will be in<br>- Click \"Upload\"",
-      "video": "zb32HvnehAU"
+    {
+      "q": "How to Bulk Upload Inventory",
+      "a": "1. Go to the Inventory section<br>2. Click on the Upload icon on the bottom center of the screen<br>3. Click the kind of inventory you want to upload (either Parcel or Single)<br>4. Click on \"Bulk Upload\" on the top of the page<br>5. Download template for Acceptable Field Values and either Natural or Lab Grown<br>6. Fill in the details in the specific template (use Acceptable Field Values)<br>7. Click on either \"Rupees\" or \"Dollar\" to say what the price will be in<br>8. Click \"Upload\"",
+      "video": "sAGkQlYXFCc"
+    },
+    {
+      "q": "How to view Matched Demands (to sell diamonds)",
+      "a": "1. Go to the Inventory section<br>2. Find and click on the inventory you want to see matched<br>3. Click on \"Matched Demands\" button<br>4. All the Matched Demands to that inventory will be shown<br>5. Select the demand you want to view",
+      "video": "aHL6NwGzawg"
+    },
+    {
+      "q": "How to view Matched Inventory (to buy diamonds)",
+      "a": "1. After posting a Demand<br>2. Click on \"Matched Inventory\" button. <br>The number indicates how many inventory matches there are. <br>If there are no matched inventory items, the button will not show<br>3. Select the inventory of your choice"
+    },
+    {
+      "q": "How to view no Matched Inventory (to buy diamonds)",
+      "a": "1. After posting a Demand<br>If there are no matched inventory items, the button will not show<br>2. Keep using the app, your demand may be matched after sometime."
+    },
+    {
+      "q": "How to Send Notifications for Matched Demands (to sell diamonds)",
+      "a": "1. Go to the Inventory section<br>2. Find and click on the inventory you want to see matched<br>3. Click on \"Matched Demands\" button<br>4. All the Matched Demands to that inventory will be shown<br>5. Click on the Bell Icon to send a notification to the buyer",
+      "video": "H1wzhLvk3NY"
+    },
+    {
+      "q": "How to Send Notifications for Matched Inventory (to buy diamonds)",
+      "a": "1. After posting a Demand<br>2. Click on \"Matched Inventory\" button. The number indicates how many inventory matches there are. If there are no matched inventory items, the button will not show<br>3. Click on the Bell icon to send a notification to the seller",
+      "video": "RDkcUpSdSuM"
+    },
+    {
+      "q": "How to Refresh Inventory",
+      "a": "1. Go to the Inventory section<br>2. Click on the 3 dots on the top right<br>3. Click on \"Refresh Inventory\"",
+      "video": "OQrypl13Xks"
+    },
+    {
+      "q": "How to make Inventory Inactive",
+      "a": "1. Go to the Inventory section<br>2. Find and click on the inventory you want to make inactive<br>3. Click on the 3 dots<br>4. Click on \"Mark as Inactive\"",
+      "video": "naMNz4JRk0M"
+    },
+    {
+      "q": "How to Compare Diamonds",
+      "a": "1. After posting a Demand<br>2. Click on \"Matched Inventory\" button<br>3. Click on the Left button (with 2 diamonds) of the first inventory you want to compare<br>4. Click on the Left button (with 2 diamonds) of the second inventory you want to compare<br>5. Compare page pops up to compare both the inventory items",
+      "video": "ebqm-ctkT-s"
+    },
+    {
+      "q": "How to Download Matched Inventory (to buy diamonds)",
+      "a": "1. After posting a Demand<br>2. Click on \"Matched Inventory\" button<br>3. On top right of the page, click on \"Download\" icon<br>4. Or, click on supplier tab and click on a supplier.<br> Then click on on \"Download\" icon on top right of the screen"
+    },
+    {
+      "q": "How to Filter & Download Inventory",
+      "a": "1. Go to the Inventory section<br>2. Click on the Filter icon<br>3. Filter the inventory you wish to download<br>4. Click on the 3 dots on the top right<br>5. Click \"Download Inventory\"<br>6. Find the inventory in your device files"
+    },
+    {
+      "q": "How to Filter Own Inventory",
+      "a": "1. Go to the Inventory Section<br>2. Click on the Filter icon at the bottom right<br>3. Fill in the details of the inventory you wish to filter<br>4. Click the \"Filter\" button",
+      "video": "S_BK9Xxadq4"
+    },
+    {
+      "q": "How to Download Inventory category wise",
+      "a": "1. Go to the Inventory section<br>2. Click on the 3 dots on the top right<br>3. Click \"Download Inventory\"<br>4. Select the inventory category (P, S, SC) you wish to download.<br>5.Find the inventory in your device files",
+      "video": "RssEd1yF_qo"
+    },
+    {
+      "q": "How to view Upload History",
+      "a": "1. Go to the Inventory section<br>2. Click on the 3 dots<br>3. Click on \"Uploaded History\"<br>4. Can download the uploaded excel files"
+    },
+    {
+      "q": "How to Hide Inventory",
+      "a": "1. Go to the Inventory section<br>2. Find and click on the inventory you want to Hide<br>3. Click on the 3 dots<br>4. Click on \"Hide\"",
+      "video": "kcvpP7A9Ak4"
+    },
+    {
+      "q": "How to Mark Inventory as Sold",
+      "a": "1. Go to the Inventory section<br>2. Find and click on the inventory you want to make Sold<br>3. Click on the 3 dots<br>4. Click on \"Mark as Sold\"",
+      "video": "Ki1xMA5Hb3Y"
+    },
+    {
+      "q": "How to Share Market Inventory",
+      "a": "1. Go to the \"My Demands\" section<br>2. Click on a demand that is matched, Click on \"Matched Inventory\" button<br>3. Click on the Inventory you wish to share<br>4. Click on the Share button<br>5. Share on WhatsApp/Telegram/Message/etc."
+    },
+    {
+      "q": "How to Change Notification Preferences",
+      "a": "1. Click on the burger menu on the top left<br>2. Click on \"My Profile\"<br>3. Click on the 3 dots and click \"Settings\"<br>4. Select the Notification Preferences and Types of Notifications you prefer"
     }
   ],
   "Upgrade": [
     {
-      "q": "How to upgrade my account?",
-      "a": "- Go to Settings<br>- Click Upgrade<br>- Choose plan and complete payment",
-	  "video": "zb32HvnehAU"		
-	}
+      "q": "How to Pay on Apple",
+      "a": ""
+    },
+    {
+      "q": "How to Pay on Android",
+      "a": "1. Click on Inventory Section<br>2. Select a pack of Monthly or Yearly<br>3. Click on UPI/GPay<br>4. In UPI/GPay set up autopayment<br>5. Authorize Autopay<br>6. On success, you will recieve a payment successful page",
+      "video": "vEv1cfJnD1s"
+    }
   ],
   "Other": [
     {
-      "q": "How to Edit Profile?",
-      "a": "- Click on the burger menu on the top left<br>- Click on \"My Profile\"<br>- Fill in the required details<br>- Upload a Profile Picture by clicking on profile image<br>- Choose the source from which you wish to upload the image<br>- Choose an image & it will be upload<br>- Click on \"Save Changes\"",
-	  "video": "zb32HvnehAU"
+      "q": "How to Edit Profile",
+      "a": "1. Click on the burger menu on the top left<br>2. Click on \"My Profile\"<br>3. Fill in the required details<br>4. Upload a Profile Picture by clicking on profile image<br>5. Choose the source from which you wish to upload the image<br>6. Choose an image & it will be upload<br>7. Click on \"Save Changes\""
+    },
+    {
+      "q": "How to Use Calculator",
+      "a": "1. Click on the Calculator icon in the bottom right corner<br>2. Fill in the specifications for your calculations<br>3. The total amount will be calculated and displayed on the screen<br>4. Click the \"Share\" icon to share the calculated amount",
+      "video": "n1wn_lR_ypg"
     }
   ]
-  
 }
